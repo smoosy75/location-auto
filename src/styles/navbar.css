@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "rubik";
+}
+
 :root {
   --mainColor: #ffff;
   --mainColorLight: #5767aa;
@@ -11,16 +18,21 @@
 }
 
 header {
+  margin-left: 50px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
-  padding: 0 2rem;
-  background-color: var(--mainColor);
+  padding: 2.7rem 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
   color: var(--textColor);
 }
 
-header > img {
+div > img {
   height: 100%;
   width: 14.5rem;
   object-fit: contain;
@@ -30,10 +42,11 @@ header > img {
 nav a {
   margin: 0 1rem;
   font-size: 1.6rem;
+  align-items: center;
   font-weight: 500;
   color: var(--textColor);
   text-decoration: none;
-  font-family: "rubik";
+  transition: all 0.3s ease-in-out;
 }
 
 nav a:hover {
@@ -56,6 +69,50 @@ header div,
 nav {
   display: flex;
   align-items: center;
+  padding: 2.7rem 2rem;
+}
+
+.navbar_right {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.navbar_right button:nth-child(1) {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: black;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: "rubik";
+}
+
+.navbar_right button:nth-child(1):hover {
+  color: var(--secondaryColor);
+}
+
+.navbar_right button:nth-child(2) {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  outline: none;
+  background-color: var(--secondaryColor);
+  color: white;
+  opacity: 0.8;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: "rubik";
+  border-radius: 3px;
+  padding: 1.5rem 3rem;
+  box-shadow: 0 10px 15px 0 rgba(255, 83, 48, 0.35);
+}
+
+.navbar_right button:nth-child(2):hover {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -64,23 +121,37 @@ nav {
     opacity: 1;
   }
 
+  header .nav-btn:hover {
+    color: var(--secondaryColor);
+  }
+
+  header {
+    margin: 0;
+  }
+
   header nav {
     position: fixed;
-    top: -100vh;
-    left: 0;
+    top: 0;
+    left: -100vh;
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 3rem;
     background-color: var(--mainColor);
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-in-out;
+  }
+
+  div > img {
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
   }
 
   header .responsive_nav {
-    transform: translateY(100vh);
+    transform: translateX(100vh);
   }
 
   nav .nav-close-btn {
@@ -89,7 +160,15 @@ nav {
     right: 2rem;
   }
 
+  nav .nav-close-btn:hover {
+    color: var(--secondaryColor);
+  }
+
   nav a {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+  }
+
+  .navbar_right {
+    display: none;
   }
 }
